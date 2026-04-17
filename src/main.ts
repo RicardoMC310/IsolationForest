@@ -10,34 +10,23 @@ const DATA_PATH = "src/data.json";
 
 const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
 
-// 🔹 cria modelo
 const forest = new IsolationForest(100, 512);
 
-// 🔹 tenta carregar modelo salvo
 const loaded = loadModelSafe(forest);
 
 if (!loaded) {
-    console.log("⚙️ Treinando modelo...");
+    console.log("Treinando modelo...");
 
     const dataset = loadDataset();
 
     forest.fit(dataset);
 
-    // 🔥 warmup → MUITO importante
     warmup(forest, dataset, dataset.length <= 3000 ? dataset.length : 3000);
 
     saveModelSafe(forest);
 }
 
-// ===============================
-// 🚀 RUNTIME (simulação)
-// ===============================
-
 runTests(forest);
-
-// ===============================
-// 🔧 FUNÇÕES
-// ===============================
 
 function loadDataset(): number[][] {
     if (!existsSync(DATA_PATH)) {
@@ -72,10 +61,6 @@ function runTests(forest: IsolationForest) {
     }
 }
 
-// ===============================
-// 💾 PERSISTÊNCIA SIMPLES
-// ===============================
-
 function saveModelSafe(forest: any) {
     const data = {
         timestamp: Date.now(),
@@ -97,7 +82,6 @@ function loadModelSafe(forest: any): boolean {
         return false;
     }
 
-    // ⚠️ restore manual (simples)
     Object.assign(forest, raw.model);
 
     console.log("Modelo carregado ✔️");

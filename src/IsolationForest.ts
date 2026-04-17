@@ -31,7 +31,6 @@ export class IsolationForest {
 
         const scores = data.map(p => this.score(p));
 
-        // 🔥 escolha robusta
         const pThreshold = percentile(scores, 0.01);
         const statThreshold = mean(scores) + 0.5 * stdDev(scores);
 

@@ -1,5 +1,4 @@
 import { writeFileSync, readFileSync, existsSync } from "fs";
-import { IsolationForest } from "./IsolationForest";
 
 export function saveModel(path: string, forest: any) {
     writeFileSync(path, JSON.stringify({

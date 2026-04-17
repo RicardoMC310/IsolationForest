@@ -2,7 +2,7 @@ import { writeFileSync } from "fs";
 
 type Point = { x: number; y: number };
 
-const TOTAL = 1000;
+const TOTAL = 10000;
 
 function generateNormal(): Point {
   return {

@@ -5,7 +5,6 @@ export function computePathLength(
     point: number[],
     depth = 0
 ): number {
-    // 🔒 proteção total
     if (
         node.feature === null ||
         node.threshold === null ||
@@ -17,7 +16,6 @@ export function computePathLength(
 
     const value = point[node.feature];
 
-    // 🔒 proteção extra
     if (value === undefined) {
         return depth;
     }
