@@ -1,0 +1,21 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "rewriteRelativeImportExtensions": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "node"
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "watchOptions": {
+    "watchFile": "useFsEvents",
+    "watchDirectory": "useFsEvents",
+    "fallbackPolling": "dynamicPriority"
+  },
+}
